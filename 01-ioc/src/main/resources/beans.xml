@@ -16,13 +16,13 @@
 <!--    </bean>-->
 
     <!-- 有参构造第一种： 下标赋值 -->
-<!--    <bean id="user" class="com.lics.pojo.User">-->
-<!--        <constructor-arg type="java.lang.String" value="lics-type" />-->
-<!--    </bean>-->
-
     <bean id="user" class="com.lics.pojo.User">
-        <constructor-arg name="name" value="lics-arg-name" />
+        <constructor-arg type="java.lang.String" value="lics-type" />
     </bean>
+
+<!--    <bean id="user" class="com.lics.pojo.User">-->
+<!--        <constructor-arg name="name" value="lics-arg-name" />-->
+<!--    </bean>-->
 
 
 </beans>
