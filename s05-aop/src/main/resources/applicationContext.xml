@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 注册bean -->
+    <bean id="userService" class="com.lics.service.UserServiceImpl" />
+    <bean id="log" class="com.lics.log.Log" />
+    <bean id="logAfter" class="com.lics.log.LogAfter" />
+
+    <!-- 配置aop -->
+    <aop:config>
+        <!-- 切入点 -->
+        <aop:pointcut id="pointcut" expression="execution(* com.lics.service.UserServiceImpl.*(..))"/>
+        <!-- 执行环绕增加！ -->
+        <aop:advisor advice-ref="log" pointcut-ref="pointcut" />
+        <aop:advisor advice-ref="logAfter" pointcut-ref="pointcut" />
+    </aop:config>
+
+</beans>
